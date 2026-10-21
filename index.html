@@ -110,9 +110,42 @@ footer {
 </main>
 
 <script>
+let currentQuestion = 0;
+
+const questions = [
+  "Do you still love me? 💙",
+  "Do you think we can work things out? 🥹",
+  "Do you think we can try again? 💌"
+];
+
 function start() {
+  currentQuestion = 0;
+  showQuestion();
+}
+
+function showQuestion() {
+  document.getElementById("message").innerHTML = `
+    <p>${questions[currentQuestion]}</p>
+    <button onclick="answerYes()">Yes 💙</button>
+    <button onclick="answerNo()">No</button>
+  `;
+}
+
+function answerYes() {
+  currentQuestion++;
+
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    document.getElementById("message").innerHTML =
+      "<p>Thank you for being honest with me. 💙</p>";
+  }
+}
+
+function answerNo() {
   document.getElementById("message").innerHTML =
-    "Do you still love me? 💙";
+    "<p>It's okay. Thank you for being honest. 💙</p>";
+}
 }
 </script>
 </body>
