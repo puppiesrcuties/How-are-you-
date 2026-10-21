@@ -1,12 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How are you?</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How are you? 💙</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #eafaff;
+  background:
+    radial-gradient(circle at top, #123d78, transparent 55%),
+    linear-gradient(160deg, #020817, #071b3c, #00172d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(#8beaff 1px, transparent 1px),
+    radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 47px 47px, 83px 83px;
+  background-position: 0 0, 24px 35px;
+  opacity: 0.35;
+}
+
+.card {
+  position: relative;
+  width: min(90%, 440px);
+  padding: 35px 24px;
+  border: 1px solid #3c9dff66;
+  border-radius: 25px;
+  background: #06152be8;
+  box-shadow: 0 0 35px #168bff30;
+}
+
+.alien {
+  font-size: 65px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: #80e6ff;
+  font-size: 2.3rem;
+  text-shadow: 0 0 18px #168bff88;
+}
+
+p {
+  color: #c7dff7;
+  line-height: 1.7;
+}
+
+button {
+  padding: 12px 24px;
+  margin: 8px;
+  border: 1px solid #60cfff;
+  border-radius: 25px;
+  background: #0b3470;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1460ad;
+}
+
+#message {
+  margin-top: 20px;
+  color: #8beaff;
+}
+
+footer {
+  margin-top: 30px;
+  color: #7299c7;
+  font-size: 0.8rem;
+}
+</style>
 </head>
-<body style="background:#071426; color:#60D9FF; text-align:center; font-family:Arial; padding-top:100px;">
-  <h1>How are you? 💙</h1>
-  <p>I hope you're doing okay. ✨</p>
+
+<body>
+<div class="stars"></div>
+
+<main class="card">
+  <div class="alien">💙👽✨</div>
+  <h1>How are you?</h1>
+  <p>
+    Hey, you.<br>
+    I hope you're doing okay.<br>
+    There's something I've been wanting to ask you...
+  </p>
+
+  <button onclick="start()">I'm listening 💙</button>
+
+  <div id="message"></div>
+  <footer>somewhere under the same stars ✨</footer>
+</main>
+
+<script>
+function start() {
+  document.getElementById("message").innerHTML =
+    "Do you still love me? 💙";
+}
+</script>
 </body>
 </html>
