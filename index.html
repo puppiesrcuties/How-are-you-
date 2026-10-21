@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,16 +14,16 @@
 body {
   margin: 0;
   min-height: 100vh;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: Arial, sans-serif;
+  text-align: center;
   color: #eafaff;
   background:
     radial-gradient(circle at top, #123d78, transparent 55%),
     linear-gradient(160deg, #020817, #071b3c, #00172d);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow-x: hidden;
 }
 
 .stars {
@@ -43,12 +44,12 @@ body {
   padding: 35px 24px;
   border: 1px solid #3c9dff66;
   border-radius: 25px;
-  background: #06152be8;
+  background: #06152bed;
   box-shadow: 0 0 35px #168bff30;
 }
 
 .alien {
-  font-size: 65px;
+  font-size: 58px;
   margin-bottom: 12px;
 }
 
@@ -64,23 +65,29 @@ p {
 }
 
 button {
-  padding: 12px 24px;
-  margin: 8px;
+  padding: 12px 22px;
+  margin: 7px;
   border: 1px solid #60cfff;
   border-radius: 25px;
   background: #0b3470;
   color: white;
   font-size: 1rem;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 button:hover {
   background: #1460ad;
+  box-shadow: 0 0 15px #168bff66;
 }
 
 #message {
   margin-top: 20px;
+}
+
+.question {
   color: #8beaff;
+  font-size: 1.15rem;
 }
 
 footer {
@@ -97,18 +104,23 @@ footer {
 <main class="card">
   <div class="alien">💙👽✨</div>
   <h1>How are you?</h1>
+
   <p>
     Hey, you.<br>
     I hope you're doing okay.<br>
     There's something I've been wanting to ask you...
   </p>
 
-  <button onclick="start()">I'm listening 💙</button>
+  <button id="startButton" onclick="start()">
+    I'm listening 💙
+  </button>
 
-  <div id="message"></div>
+  <div id="message" aria-live="polite"></div>
+
   <footer>somewhere under the same stars ✨</footer>
 </main>
 
+<script>
 let currentQuestion = 0;
 
 const questions = [
@@ -119,12 +131,15 @@ const questions = [
 
 function start() {
   currentQuestion = 0;
+  document.getElementById("startButton").style.display = "none";
   showQuestion();
 }
 
 function showQuestion() {
-  document.getElementById("message").innerHTML = `
-    <p>${questions[currentQuestion]}</p>
+  const message = document.getElementById("message");
+
+  message.innerHTML = `
+    <p class="question">${questions[currentQuestion]}</p>
     <button onclick="answerYes()">Yes 💙</button>
     <button onclick="answerNo()">No</button>
   `;
@@ -136,15 +151,28 @@ function answerYes() {
   if (currentQuestion < questions.length) {
     showQuestion();
   } else {
-    document.getElementById("message").innerHTML =
-      "<p>Thank you for being honest with me. 💙</p>";
+    document.getElementById("message").innerHTML = `
+      <p class="question">Thank you for sharing your feelings with me. 💙</p>
+      <p>Whatever happens, I hope we can understand each other. ✨</p>
+      <button onclick="restart()">Read again ↻</button>
+    `;
   }
 }
 
 function answerNo() {
-  document.getElementById("message").innerHTML =
-    "<p>It's okay. Thank you for being honest. 💙</p>";
+  document.getElementById("message").innerHTML = `
+    <p class="question">It's okay. 💙</p>
+    <p>Thank you for being honest with me. You don't have to give an answer you don't mean.</p>
+    <button onclick="restart()">Back to the beginning ↻</button>
+  `;
+}
+
+function restart() {
+  document.getElementById("message").innerHTML = "";
+  document.getElementById("startButton").style.display = "inline-block";
+  currentQuestion = 0;
 }
 </script>
+
 </body>
 </html>
