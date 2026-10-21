@@ -4,313 +4,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How are you? | Slytherin Edition</title>
+<title>How are you? ♜</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
-:root {
-  --green: #0c6b45;
-  --bright: #42d69a;
-  --silver: #c9d4d0;
-  --muted: #9ba9a3;
-  --black: #050907;
-  --panel: rgba(10, 21, 16, 0.94);
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   min-height: 100vh;
-  padding: 35px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'IM Fell English', Georgia, serif;
-  color: #e8eee9;
+  background: radial-gradient(ellipse at top, #123d2b 0%, #07130e 45%, #020403 100%);
+  color: #e7e8e3;
+  font-family: 'IM Fell English', serif;
   text-align: center;
-  background:
-    radial-gradient(ellipse at 50% 0%, #123e2b 0%, transparent 55%),
-    linear-gradient(145deg, #020403, #08140e 55%, #020504);
-  overflow-x: hidden;
+  padding: 28px 16px;
 }
 
-.ambient {
+.stars {
   position: fixed;
   inset: 0;
   pointer-events: none;
+  opacity: .3;
   background-image:
-    radial-gradient(circle, #9bffcb 1px, transparent 1.5px),
-    radial-gradient(circle, #d7e2dd 1px, transparent 1.5px);
-  background-size: 73px 73px, 109px 109px;
-  background-position: 10px 20px, 40px 55px;
-  opacity: 0.19;
-  animation: shimmer 7s ease-in-out infinite alternate;
+    radial-gradient(2px 2px at 20% 30%, #b5e8c5 50%, transparent),
+    radial-gradient(1px 1px at 70% 20%, #ffffff 50%, transparent),
+    radial-gradient(2px 2px at 80% 75%, #b5e8c5 50%, transparent),
+    radial-gradient(1px 1px at 30% 80%, #ffffff 50%, transparent);
+  background-size: 190px 190px;
 }
 
-@keyframes shimmer {
-  from { opacity: 0.10; }
-  to { opacity: 0.27; }
-}
-
-.card {
+main {
   position: relative;
-  width: min(90%, 460px);
-  padding: 36px 25px;
-  border: 1px solid #668778;
-  border-radius: 5px;
-  background: var(--panel);
-  box-shadow:
-    0 0 35px #0c6b4526,
-    inset 0 0 30px #17352524;
-}
-
-.card::before,
-.card::after {
-  content: "✦";
-  position: absolute;
-  color: var(--silver);
-  font-size: 20px;
-  opacity: 0.75;
-}
-
-.card::before {
-  top: 12px;
-  left: 15px;
-}
-
-.card::after {
-  right: 15px;
-  bottom: 12px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 32px 20px;
 }
 
 .crest {
-  color: var(--bright);
-  font-size: 43px;
-  margin-bottom: 6px;
-  text-shadow: 0 0 20px #42d69a55;
+  color: #9bd4ad;
+  font-size: 45px;
+  text-shadow: 0 0 20px #287a4c;
+  margin-bottom: 10px;
 }
 
-.eyebrow {
-  color: var(--silver);
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: 0.7rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+h1, h2 {
+  font-family: 'Cinzel', serif;
+  color: #b6ddc1;
+  letter-spacing: 2px;
 }
 
-h1 {
-  margin: 18px 0;
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: clamp(1.7rem, 7vw, 2.5rem);
-  font-weight: 500;
-  color: #d6e2db;
-  text-shadow: 0 0 18px #42d69a30;
-}
+h1 { font-size: clamp(25px, 6vw, 38px); }
+h2 { font-size: 22px; }
 
 p {
-  color: #b9c7bf;
-  line-height: 1.9;
-}
-
-.divider {
-  margin: 22px auto;
-  color: #7d9a8a;
-  letter-spacing: 8px;
+  font-size: 19px;
+  line-height: 1.8;
 }
 
 button {
-  padding: 12px 22px;
-  margin: 7px;
-  border: 1px solid #739687;
-  border-radius: 3px;
-  background: linear-gradient(135deg, #123e2b, #071c12);
-  color: #e0ebe4;
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: 0.82rem;
+  background: #123d2b;
+  color: #e7e8e3;
+  border: 1px solid #78ae89;
+  padding: 12px 20px;
+  margin: 8px 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: 0.25s ease;
+  transition: .25s;
 }
 
 button:hover {
-  border-color: var(--bright);
-  color: white;
-  box-shadow: 0 0 18px #42d69a30;
-  transform: translateY(-2px);
+  background: #205c3d;
+  box-shadow: 0 0 18px #286e49;
 }
 
-#message {
-  margin-top: 24px;
+button:focus-visible {
+  outline: 2px solid #d4f0dc;
+  outline-offset: 3px;
 }
 
-.question {
-  color: #dce7df;
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: 1.08rem;
-  line-height: 1.9;
+.panel {
+  border: 1px solid #426b50;
+  background: rgba(3, 12, 7, .85);
+  box-shadow: 0 0 28px rgba(32, 100, 60, .15);
+  padding: 28px 22px;
+  margin-top: 20px;
 }
 
-.small-note {
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-style: italic;
+.hidden { display: none !important; }
+
+.small {
+  color: #aab9ac;
+  font-size: 15px;
 }
 
 .letter {
-  margin-top: 20px;
-  padding: 22px 18px;
-  border: 1px solid #668778;
-  background: #d8d8c9;
-  color: #17251c;
   text-align: left;
-  animation: appear 1s ease both;
+  white-space: pre-line;
+  font-size: 18px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
-.letter p {
-  color: #26372d;
-  line-height: 1.85;
+.page-indicator {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: #9bd4ad;
+  letter-spacing: 2px;
+  margin-top: 24px;
 }
 
-.letter h2 {
-  font-family: 'Cinzel', Georgia, serif;
-  color: #174b32;
-  font-size: 1.15rem;
-  text-align: center;
+.signature {
+  text-align: right;
+  color: #b6ddc1;
+  font-style: italic;
 }
 
-@keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-footer {
-  margin-top: 30px;
-  color: #82988b;
-  font-size: 0.78rem;
-  letter-spacing: 1px;
-}
-
-@media (max-width: 400px) {
-  .card { padding: 32px 17px; }
-  button { padding: 11px 15px; }
+@media (max-width: 480px) {
+  main { padding: 20px 8px; }
+  .panel { padding: 22px 16px; }
+  .letter { font-size: 17px; }
+  p { font-size: 18px; }
 }
 </style>
 </head>
 
 <body>
-<div class="ambient"></div>
-
-<main class="card">
-  <div class="eyebrow">A quiet corner of the world</div>
+<div class="stars"></div>
+<main>
   <div class="crest">♜</div>
 
-  <h1>How are you?</h1>
+  <section id="intro" class="panel">
+    <h1>How are you?</h1>
+    <p>I hope you're doing okay. 💚</p>
+    <p class="small">There are some things I've been wanting to tell you.</p>
+    <button onclick="startQuestions()">I'm listening ♜</button>
+  </section>
 
-  <p>
-    Hey, you.<br>
-    I hope life has been gentle with you.<br>
-    There are a few things I've been wanting to ask...
-  </p>
+  <section id="questions" class="panel hidden">
+    <p class="small" id="questionNumber"></p>
+    <h2 id="questionText"></h2>
+    <button onclick="answerYes()">Yes</button>
+    <button onclick="answerNo()">No</button>
+    <p id="questionMessage" class="small"></p>
+  </section>
 
-  <div class="divider">✦ ━ ✦ ━ ✦</div>
+  <section id="ending" class="panel hidden">
+    <h2 id="endingTitle">Thank you for being honest. ♜</h2>
+    <p id="endingText">Whatever your answer is, I hope we can understand each other.</p>
+    <button id="letterButton" onclick="openLetter()">Open my letter ✉</button>
+    <button onclick="restart()">Start again</button>
+  </section>
 
-  <button id="startButton" onclick="start()">
-    I'm listening
-  </button>
-
-  <div id="message" aria-live="polite"></div>
-
-  <footer>IN THE QUIET BETWEEN THE STARS</footer>
+  <section id="letterSection" class="panel hidden">
+    <div class="crest">♜</div>
+    <h2 id="pageTitle">A letter for you</h2>
+    <div id="letterContent" class="letter"></div>
+    <div id="pageIndicator" class="page-indicator">PAGE 1 OF 3</div>
+    <div>
+      <button id="prevButton" onclick="changePage(-1)">← Previous Page</button>
+      <button id="nextButton" onclick="changePage(1)">Next Page →</button>
+    </div>
+    <p class="small" id="pageNote"></p>
+    <button onclick="restart()">Return to the beginning ♜</button>
+  </section>
 </main>
 
 <script>
-let currentQuestion = 0;
-
 const questions = [
   "Do you still love me?",
   "Do you think we can work things out?",
   "Do you think we can try again?"
 ];
 
-function start() {
-  currentQuestion = 0;
-  document.getElementById("startButton").style.display = "none";
-  showQuestion();
+let questionIndex = 0;
+let pageIndex = 0;
+
+function show(id) {
+  ["intro", "questions", "ending", "letterSection"].forEach(section => {
+    document.getElementById(section).classList.add("hidden");
+  });
+  document.getElementById(id).classList.remove("hidden");
 }
 
-function showQuestion() {
-  document.getElementById("message").innerHTML = `
-    <p class="question">${questions[currentQuestion]}</p>
-    <button onclick="answerYes()">Yes</button>
-    <button onclick="answerNo()">No</button>
-    <p class="small-note">Take your time. Be honest with me.</p>
-  `;
+function startQuestions() {
+  questionIndex = 0;
+  show("questions");
+  renderQuestion();
+}
+
+function renderQuestion() {
+  document.getElementById("questionNumber").textContent =
+    "QUESTION " + (questionIndex + 1) + " OF " + questions.length;
+  document.getElementById("questionText").textContent =
+    questions[questionIndex];
+  document.getElementById("questionMessage").textContent = "";
 }
 
 function answerYes() {
-  currentQuestion++;
-
-  if (currentQuestion < questions.length) {
-    showQuestion();
+  questionIndex++;
+  if (questionIndex < questions.length) {
+    renderQuestion();
   } else {
-    document.getElementById("message").innerHTML = `
-      <p class="question">Thank you for telling me. ♜</p>
-      <p>Maybe there's still a little hope for us.</p>
-      <button onclick="openLetter()">Open my letter ✉</button>
-    `;
+    document.getElementById("endingTitle").textContent =
+      "Thank you for telling me. ♜";
+    document.getElementById("endingText").textContent =
+      "Maybe there's still a little hope for us. Whatever happens, I hope we can be honest with each other.";
+    show("ending");
   }
 }
 
 function answerNo() {
-  document.getElementById("message").innerHTML = `
-    <p class="question">It's okay. ♜</p>
-    <p class="small-note">
-      Thank you for being honest with me.
-      I respect your feelings, even when the truth is difficult.
-    </p>
-    <button onclick="restart()">Return to the beginning</button>
-  `;
+  document.getElementById("endingTitle").textContent =
+    "Thank you for being honest. 💚";
+  document.getElementById("endingText").textContent =
+    "I might feel sad, but I respect your feelings. You don't have to give me an answer you don't mean.";
+  show("ending");
 }
 
+const pages = [
+`Hi my Seffy,
+
+I know things have been hard lately. Life itself is already difficult, with academics, leadership, and all the other responsibilities we have to deal with. And, of course, there’s what has been happening between us.
+
+Despite everything that has happened and all the hurtful words you’ve said to me, I still care about you. I appreciate that you’ve realized your mistakes, and I’m glad that you’ve acknowledged them. However, I still find it difficult to consider giving us another chance, knowing that we might end up fighting over things that we could easily resolve if we simply learned to trust each other.
+
+Instead of hurting each other with our words, I wish we had handled things differently. When we first talked, I honestly thought we wouldn’t reach the point of saying things just to hurt one another. I always believed that when you truly love someone, you wouldn’t intentionally say things that you know would hurt them. I thought that when you realized your actions were making your partner cry, you would try to become better and do your best not to put them through the same pain again.
+
+There have been so many things I’ve asked myself throughout all of this. Why did you never really defend my name? Why was it so difficult for you to trust me? Why did our arguments always have to end with hurtful words? We seemed to fight almost every week, and yet you still expected me to choose you over my friends, even when they were showing me the kind of trust and understanding I wished I could have felt from you. Honestly, I still struggle to understand that.
+
+But please understand that I’m not writing this to attack you or make you feel like you’re the only one who made mistakes. I’m simply expressing what I’ve been feeling and what I’ve kept to myself for a while. I want you to understand my side, just as I would have wanted to understand yours.`,
+
+`It’s been a month already. Our field trip has passed, and a part of me honestly thought you would try to fix things between us before then. I thought you knew how much I wanted to spend that time with you, how much I looked forward to it, and how much it meant to me. Maybe I held on to that expectation because I still hoped that, somehow, things would turn out differently. But I guess I had to accept the reality of our situation, even when it wasn’t what I wanted. :(
+
+Despite everything, I still care about you, and I still like you. Maybe not as deeply as I did before, and maybe things aren’t the same anymore, but the feeling hasn’t completely disappeared. There’s still a part of me that cares, a part of me that wonders what could happen if we ever decided to try again.
+
+If we ever talk about us again, I think the only way we could make things work is if we’re both genuinely willing to change. I don’t want us to go back to the same cycle of arguments, offensive comments, misunderstandings, and unnecessary hurt. I want us to learn how to communicate without hurting each other. I want us to trust each other, and I especially want you to learn to trust me. I want you to stop worrying about other boys and understand that a relationship cannot grow if we constantly let our doubts and fears get in the way.
+
+I also hope that, if we ever decide to try again, we can learn to put our egos and pride aside for each other. I hope we can be willing to take the first step, admit when we’re wrong, and choose to understand each other instead of letting our pride keep us apart. I don’t want us to reach a point where neither of us wants to apologize or fix things simply because we’re too afraid to set our pride aside. I want us to remember that it’s not about who gives in first or who wins an argument. It’s about how much we’re both willing to work for the relationship we say we want.
+
+I don’t expect everything to become perfect overnight. I know that changing takes time, and I know that both of us have things to learn. But if we ever decide to give this another chance, I want it to be different. I want us to actually work on our problems instead of letting them become reasons to hurt each other again. I want us to choose understanding over assumptions, communication over arguments, and trust over doubt.`,
+
+`And honestly, this whole thing came from my endless what-ifs and my boredom leading me to try something new. HAHAHA. I started wondering what would happen if I made something like this, something that could somehow express the things I haven’t been able to say properly. So, I ended up making this little website for you.
+
+I hope you like it. :)
+
+I don’t know what will happen after this, and I’m not writing this to pressure you into making a decision. I just wanted to give these feelings a place to exist, even if I don’t know where they’ll lead us. Maybe this is simply my way of expressing the things I still feel, the things I wish had been different, and the little part of me that still wonders about us.
+
+Whatever happens, I hope you understand that everything I’ve written here comes from a place of honesty. I’m not asking you to forget what happened, and I’m not pretending that the hurt never existed. I just wanted you to know that, despite everything, I still care.
+
+Take care of yourself, okay?
+
+With sincerity,
+Ela♡`
+];
+
 function openLetter() {
-  document.getElementById("message").innerHTML = `
-    <div class="letter">
-      <h2>A Letter From Me</h2>
-      <p>
-        There's something I've been keeping in my heart,
-        and I want to say it honestly.
-      </p>
-      <p>
-        I still care about you. I know that feelings alone
-        cannot fix everything, but I believe that honest
-        conversations and effort from both sides matter.
-      </p>
-      <p>
-        I don't expect you to have every answer right now.
-        I just wanted you to know how I feel.
-      </p>
-      <p>
-        Whatever your answer is, thank you for taking
-        the time to read this.
-      </p>
-      <p style="text-align:right; font-style:italic;">
-        With care, 💚
-      </p>
-    </div>
-    <button onclick="restart()">Return to the beginning</button>
-  `;
+  pageIndex = 0;
+  show("letterSection");
+  renderPage();
+}
+
+function renderPage() {
+  document.getElementById("letterContent").textContent = pages[pageIndex];
+  document.getElementById("pageIndicator").textContent =
+    "PAGE " + (pageIndex + 1) + " OF " + pages.length;
+
+  document.getElementById("pageTitle").textContent =
+    pageIndex === 0 ? "What I've Been Keeping Inside" :
+    pageIndex === 1 ? "What I Still Hope For" :
+    "Whatever Happens, I Still Care";
+
+  document.getElementById("prevButton").style.visibility =
+    pageIndex === 0 ? "hidden" : "visible";
+  document.getElementById("nextButton").textContent =
+    pageIndex === pages.length - 1 ? "You've reached the end ♡" : "Next Page →";
+  document.getElementById("nextButton").disabled =
+    pageIndex === pages.length - 1;
+
+  document.getElementById("pageNote").textContent =
+    pageIndex === pages.length - 1 ? "With sincerity, Ela♡" : "Take your time reading. 💚";
+}
+
+function changePage(direction) {
+  pageIndex += direction;
+  if (pageIndex < 0) pageIndex = 0;
+  if (pageIndex >= pages.length) pageIndex = pages.length - 1;
+  renderPage();
+  document.getElementById("letterSection").scrollIntoView({ behavior: "smooth" });
 }
 
 function restart() {
-  currentQuestion = 0;
-  document.getElementById("message").innerHTML = "";
-  document.getElementById("startButton").style.display = "inline-block";
+  questionIndex = 0;
+  show("intro");
 }
 </script>
-
 </body>
 </html>
