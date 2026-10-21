@@ -4,129 +4,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How are you? 💙</title>
+<title>How are you? | Slytherin Edition</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&display=swap');
+
 * {
   box-sizing: border-box;
+}
+
+:root {
+  --green: #0c6b45;
+  --bright: #42d69a;
+  --silver: #c9d4d0;
+  --muted: #9ba9a3;
+  --black: #050907;
+  --panel: rgba(10, 21, 16, 0.94);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  padding: 24px 0;
+  padding: 35px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Arial, sans-serif;
+  font-family: 'IM Fell English', Georgia, serif;
+  color: #e8eee9;
   text-align: center;
-  color: #eafaff;
   background:
-    radial-gradient(circle at top, #123d78, transparent 55%),
-    linear-gradient(160deg, #020817, #071b3c, #00172d);
+    radial-gradient(ellipse at 50% 0%, #123e2b 0%, transparent 55%),
+    linear-gradient(145deg, #020403, #08140e 55%, #020504);
+  overflow-x: hidden;
 }
 
-.stars {
+.ambient {
   position: fixed;
   inset: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(#8beaff 1px, transparent 1px),
-    radial-gradient(#ffffff 1px, transparent 1px);
-  background-size: 47px 47px, 83px 83px;
-  background-position: 0 0, 24px 35px;
-  opacity: 0.35;
+    radial-gradient(circle, #9bffcb 1px, transparent 1.5px),
+    radial-gradient(circle, #d7e2dd 1px, transparent 1.5px);
+  background-size: 73px 73px, 109px 109px;
+  background-position: 10px 20px, 40px 55px;
+  opacity: 0.19;
+  animation: shimmer 7s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  from { opacity: 0.10; }
+  to { opacity: 0.27; }
 }
 
 .card {
   position: relative;
-  width: min(90%, 440px);
-  padding: 35px 24px;
-  border: 1px solid #3c9dff66;
-  border-radius: 25px;
-  background: #06152bed;
-  box-shadow: 0 0 35px #168bff30;
+  width: min(90%, 460px);
+  padding: 36px 25px;
+  border: 1px solid #668778;
+  border-radius: 5px;
+  background: var(--panel);
+  box-shadow:
+    0 0 35px #0c6b4526,
+    inset 0 0 30px #17352524;
 }
 
-.alien {
-  font-size: 58px;
-  margin-bottom: 12px;
+.card::before,
+.card::after {
+  content: "✦";
+  position: absolute;
+  color: var(--silver);
+  font-size: 20px;
+  opacity: 0.75;
+}
+
+.card::before {
+  top: 12px;
+  left: 15px;
+}
+
+.card::after {
+  right: 15px;
+  bottom: 12px;
+}
+
+.crest {
+  color: var(--bright);
+  font-size: 43px;
+  margin-bottom: 6px;
+  text-shadow: 0 0 20px #42d69a55;
+}
+
+.eyebrow {
+  color: var(--silver);
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 h1 {
-  color: #80e6ff;
-  font-size: 2.3rem;
-  text-shadow: 0 0 18px #168bff88;
+  margin: 18px 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(1.7rem, 7vw, 2.5rem);
+  font-weight: 500;
+  color: #d6e2db;
+  text-shadow: 0 0 18px #42d69a30;
 }
 
 p {
-  color: #c7dff7;
-  line-height: 1.7;
+  color: #b9c7bf;
+  line-height: 1.9;
+}
+
+.divider {
+  margin: 22px auto;
+  color: #7d9a8a;
+  letter-spacing: 8px;
 }
 
 button {
   padding: 12px 22px;
   margin: 7px;
-  border: 1px solid #60cfff;
-  border-radius: 25px;
-  background: #0b3470;
-  color: white;
-  font-size: 1rem;
+  border: 1px solid #739687;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #123e2b, #071c12);
+  color: #e0ebe4;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.25s ease;
 }
 
 button:hover {
-  background: #1460ad;
-  box-shadow: 0 0 15px #168bff66;
+  border-color: var(--bright);
+  color: white;
+  box-shadow: 0 0 18px #42d69a30;
+  transform: translateY(-2px);
 }
 
 #message {
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .question {
-  color: #8beaff;
+  color: #dce7df;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.small-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.letter {
+  margin-top: 20px;
+  padding: 22px 18px;
+  border: 1px solid #668778;
+  background: #d8d8c9;
+  color: #17251c;
+  text-align: left;
+  animation: appear 1s ease both;
+}
+
+.letter p {
+  color: #26372d;
+  line-height: 1.85;
+}
+
+.letter h2 {
+  font-family: 'Cinzel', Georgia, serif;
+  color: #174b32;
   font-size: 1.15rem;
+  text-align: center;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 footer {
   margin-top: 30px;
-  color: #7299c7;
-  font-size: 0.8rem;
+  color: #82988b;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 400px) {
+  .card { padding: 32px 17px; }
+  button { padding: 11px 15px; }
 }
 </style>
 </head>
 
 <body>
-<div class="stars"></div>
+<div class="ambient"></div>
 
 <main class="card">
-  <div class="alien">💙✨</div>
+  <div class="eyebrow">A quiet corner of the world</div>
+  <div class="crest">♜</div>
+
   <h1>How are you?</h1>
 
   <p>
     Hey, you.<br>
-    I hope you're doing okay.<br>
-    There's something I've been wanting to ask you...
+    I hope life has been gentle with you.<br>
+    There are a few things I've been wanting to ask...
   </p>
 
+  <div class="divider">✦ ━ ✦ ━ ✦</div>
+
   <button id="startButton" onclick="start()">
-    I'm listening 💙
+    I'm listening
   </button>
 
   <div id="message" aria-live="polite"></div>
 
-  <footer>somewhere under the same stars ✨</footer>
+  <footer>IN THE QUIET BETWEEN THE STARS</footer>
 </main>
 
 <script>
 let currentQuestion = 0;
 
 const questions = [
-  "Do you still love me? 💙",
-  "Do you think we can work things out? 🥹",
-  "Do you think we can try again? 💌"
+  "Do you still love me?",
+  "Do you think we can work things out?",
+  "Do you think we can try again?"
 ];
 
 function start() {
@@ -136,12 +243,11 @@ function start() {
 }
 
 function showQuestion() {
-  const message = document.getElementById("message");
-
-  message.innerHTML = `
+  document.getElementById("message").innerHTML = `
     <p class="question">${questions[currentQuestion]}</p>
-    <button onclick="answerYes()">Yes 💙</button>
+    <button onclick="answerYes()">Yes</button>
     <button onclick="answerNo()">No</button>
+    <p class="small-note">Take your time. Be honest with me.</p>
   `;
 }
 
@@ -152,25 +258,57 @@ function answerYes() {
     showQuestion();
   } else {
     document.getElementById("message").innerHTML = `
-      <p class="question">Thank you for sharing your feelings with me. 💙</p>
-      <p>Whatever happens, I hope we can understand each other. ✨</p>
-      <button onclick="restart()">Read again ↻</button>
+      <p class="question">Thank you for telling me. ♜</p>
+      <p>Maybe there's still a little hope for us.</p>
+      <button onclick="openLetter()">Open my letter ✉</button>
     `;
   }
 }
 
 function answerNo() {
   document.getElementById("message").innerHTML = `
-    <p class="question">It's okay. 💙</p>
-    <p>Thank you for being honest with me. You don't have to give an answer you don't mean.</p>
-    <button onclick="restart()">Back to the beginning ↻</button>
+    <p class="question">It's okay. ♜</p>
+    <p class="small-note">
+      Thank you for being honest with me.
+      I respect your feelings, even when the truth is difficult.
+    </p>
+    <button onclick="restart()">Return to the beginning</button>
+  `;
+}
+
+function openLetter() {
+  document.getElementById("message").innerHTML = `
+    <div class="letter">
+      <h2>A Letter From Me</h2>
+      <p>
+        There's something I've been keeping in my heart,
+        and I want to say it honestly.
+      </p>
+      <p>
+        I still care about you. I know that feelings alone
+        cannot fix everything, but I believe that honest
+        conversations and effort from both sides matter.
+      </p>
+      <p>
+        I don't expect you to have every answer right now.
+        I just wanted you to know how I feel.
+      </p>
+      <p>
+        Whatever your answer is, thank you for taking
+        the time to read this.
+      </p>
+      <p style="text-align:right; font-style:italic;">
+        With care, 💚
+      </p>
+    </div>
+    <button onclick="restart()">Return to the beginning</button>
   `;
 }
 
 function restart() {
+  currentQuestion = 0;
   document.getElementById("message").innerHTML = "";
   document.getElementById("startButton").style.display = "inline-block";
-  currentQuestion = 0;
 }
 </script>
 
